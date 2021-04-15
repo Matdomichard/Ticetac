@@ -18,21 +18,34 @@ router.get('/login', function(req, res, next) {
 router.post('/journey', async function(req, res, next) {
 
   // console.log(req.body)
+console.log(date.toUTCString(req.body.trip-start))
 
-  journeyExist = await journeyModel.findOne({ departure: req.body.citystart , arrival:req.body.cityarrive});
+  // journeyExist = await journeyModel.findOne({ departure: req.body.citystart , arrival:req.body.cityarrive});
 
   // date: req.body.trip-start
 
   // date: req.body.trip-start
   // var journeyExist = await journeyModel.findOne({ date: req.body.newcity.toLowerCase() });
 
-  if(journeyExist != null){
+  // if(journeyExist != null){
     res.render('ticketavailable');
-   }else {
-   res.redirect('/error');
-   }  
+  //  }else {
+  //  res.redirect('/error');
+  //  }  
 });
 
+router.get('/ticketavailable', function(req, res, next) {
+  res.render('basket');
+});
+
+router.get('/basket', function(req, res, next) {
+  res.render('basket');
+});
+
+
+router.get('/error', function(req, res, next) {
+  res.render('error');
+});
 
 router.get('/error', function(req, res, next) {
   res.render('error');

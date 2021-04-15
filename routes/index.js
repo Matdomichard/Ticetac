@@ -40,6 +40,8 @@ router.get('/', function(req, res, next) {
 
 
 
+
+
 // Vous pouvez choisir de la garder ou la supprimer.
 router.get('/result', function(req, res, next) {
 

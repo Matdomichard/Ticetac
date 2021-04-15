@@ -7,28 +7,33 @@ a {
   color: #00B7FF;
 }
 
-.container {
+.navbar {
+  margin : 0px;
+}
 
+.nav-item {
+  
+
+}
+
+
+.container {
   margin-top: 200px;
-  background-color: red;
   width: 100vw;
   height: 100vh;
   
 }
 
 .row {
-  background-color: green;
-  padding: 15px;
+   padding: 15px;
 }
 
 #signin  {
- background-color:pink;
- margin: 10px;
+  margin: 10px;
 
 }
 
 #signup  {
-  background-color: blue;
   margin: 10px;
  }
 

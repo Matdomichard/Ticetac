@@ -39,7 +39,7 @@ var options = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('/login', { title: 'Express' });
+  res.render('login', { title: 'Express' });
 });
 
 

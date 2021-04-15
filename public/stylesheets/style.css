@@ -6,16 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
-
+/*---------------------- NAV BAR ITEMS-------------------------- */
 .navbar {
   margin : 0px;
 }
 
-.nav-item {
-  
-
+.imgnavbar {
+  margin-right: 10px;
 }
 
+.nav-item {
+  margin: 10px;
+}
+
+.connection {
+    color : red;
+    
+  }
+
+  /*---------------------- NAV BAR ITEMS-------------------------- */
 
 .container {
   margin-top: 200px;

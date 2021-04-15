@@ -5,7 +5,8 @@ var userSchema = mongoose.Schema({
     firstName: String,
     email: String,
     password: String,
-    // journeys: [journeysSchema],
-      })
-
+    // pastJourneys: [{type: mongoose.Schema.Types.ObjectId, ref: 'orders'}],
+});
 var userModel = mongoose.model('users', userSchema)
+
+module.exports = userModel;

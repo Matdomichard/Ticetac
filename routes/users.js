@@ -18,13 +18,24 @@ router.post('/signup', async function(req, res, next) {
     password: req.body.password
   })
   var userSaved = await newUser.save();
-  res.redirect('/homepage')
 
-  
+  res.render('homepage')
 });
 
+router.post('/signin', async function(req, res, next) {
+  var searchUser = await userModel.findOne(
+ {email:req.body.email,
+ password:req.body.password,
+ }
+ )
 
-
+ if(searchUser!= null) {
+  // req.session.user = {name: userSaved.username, id: userSaved._id};
+  res.render('homepage');
+ }else {
+ res.redirect('/login');
+ }  
+ });
 
 
 module.exports = router;

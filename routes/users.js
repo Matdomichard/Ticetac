@@ -18,6 +18,8 @@ router.post('/signup', async function(req, res, next) {
     password: req.body.password
   })
   var userSaved = await newUser.save();
+  req.session.user = {email: userSaved.email, id: userSaved._id};
+  console.log(req.session.user)
 
   res.render('homepage')
 });
@@ -30,7 +32,7 @@ router.post('/signin', async function(req, res, next) {
  )
 
  if(searchUser!= null) {
-  // req.session.user = {name: userSaved.username, id: userSaved._id};
+  req.session.user = {email: searchUser.email, id: searchUser._id};
   res.render('homepage');
  }else {
  res.redirect('/login');

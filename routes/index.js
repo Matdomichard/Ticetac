@@ -11,35 +11,35 @@ var options = {
  };
 
 // --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://XXXXXXXX:*********@XXXXXXXX-0hsfc.mongodb.net/Ticketac?retryWrites=true',
-   options,
-   function(err) {
-    if (err) {
-      console.log(`error, failed to connect to the database because --> ${err}`);
-    } else {
-      console.info('*** Database Ticketac connection : Success ***');
-    }
-   }
-);
+// mongoose.connect('mongodb+srv://XXXXXXXX:*********@XXXXXXXX-0hsfc.mongodb.net/Ticketac?retryWrites=true',
+//    options,
+//    function(err) {
+//     if (err) {
+//       console.log(`error, failed to connect to the database because --> ${err}`);
+//     } else {
+//       console.info('*** Database Ticketac connection : Success ***');
+//     }
+//    }
+// );
 
-var journeySchema = mongoose.Schema({
-  departure: String,
-  arrival: String,
-  date: Date,
-  departureTime: String,
-  price: Number,
-});
+// var journeySchema = mongoose.Schema({
+//   departure: String,
+//   arrival: String,
+//   date: Date,
+//   departureTime: String,
+//   price: Number,
+// });
 
-var journeyModel = mongoose.model('journey', journeySchema);
+// var journeyModel = mongoose.model('journey', journeySchema);
 
-var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
-var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
+// var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
+// var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('homepage', { title: 'Express' });
 });
 
 

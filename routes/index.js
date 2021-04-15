@@ -33,10 +33,12 @@ router.get('/notrainavailable', function(req, res, next) {
 
 
 router.get('/ticketavailable', function(req, res, next) {
-  res.render('basket');
+
+  res.render('ticketavailable');
 });
 
 router.get('/basket', function(req, res, next) {
+
   res.render('basket');
 });
 

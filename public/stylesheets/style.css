@@ -39,7 +39,6 @@ a {
 
 .row {
    padding: 15px;
-  
 }
 
 .titleForm {
@@ -48,7 +47,7 @@ a {
   
 }
 
-
+/*---------------------- LOGIN  ITEMS-------------------------- */
 #signin  {
   margin: 10px;
 
@@ -57,6 +56,27 @@ a {
 #signup  {
   margin: 10px;
  }
+
+
+/*---------------------- HOME PAGE ITEMS-------------------------- */
+
+.itemhp {
+  padding : 10px;
+}
+
+
+#buttonhp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  height: 40px;
+  width: 40px
+}
+
+
+/*------------------------------------------------ */
+
 
 footer {
   display: flex;

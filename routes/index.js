@@ -35,10 +35,12 @@ console.log(date.toUTCString(req.body.trip-start))
 });
 
 router.get('/ticketavailable', function(req, res, next) {
-  res.render('basket');
+
+  res.render('ticketavailable');
 });
 
 router.get('/basket', function(req, res, next) {
+
   res.render('basket');
 });
 
@@ -47,9 +49,6 @@ router.get('/error', function(req, res, next) {
   res.render('error');
 });
 
-router.get('/error', function(req, res, next) {
-  res.render('error');
-});
 
 
 // Vous pouvez choisir de la garder ou la supprimer.

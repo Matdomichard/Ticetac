@@ -13,15 +13,55 @@
 
     <div class="container">  
 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">N°</th>
+           
+            <th scope="col">Journey</th>
+            <th scope="col">Date</th>
+            <th scope="col">Departure time</th>
+            <th scope="col">Price</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+      
+                <tr class="basket-item">
+                    
+              
+                    <td>
+                        JOURNEY
+                    </td>
+                    <td>
+                        <form action="/update-shop" method="POST">
+                            <input type="hidden" name="position" value="">
+                            <input type="text" name="quantity" value="">
+                            <button type="submit" class="btn btn-outline-info btn-sm" name="button"><i class="fas fa-sync-alt"></i></button>
+                        </form>
+                    </td>
+                    <td>PRICE</td>
+                    <td>TOTAL BASKET</td>
+                    <td><a href=""><button class="btn btn-outline-info btn-sm" name="button"><i class="far fa-trash-alt"></i></button></a></td>
+                </tr>
+            
+            
+
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="total-box">Total Basket : </td>
+            <td>TOTAL COMMANDE</td>
+            <td></td>
+          </tr>
+        </tbody>
+    </table>
 
 
-
-
-
-
-
-
-
+      
+   
         
     </div>
 

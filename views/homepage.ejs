@@ -18,16 +18,16 @@
   </head>
   <body>
     <%- include('navbar'); %>
-    <div class="container col-12 d-flex justify-content-center">
-      <div class="rowerror">
-        <div class="d-flex flex-column align-items-center">
-          <div>
-            <div class="formArea  d-flex flex-row">
-              <h4 class="titleForm d-flex flex-row">One-way Ticket :</h4>
+    <div class="container col-12 d-flex justify-content-center bg-primary">
+      <div class="rowerror bg-success col-8 " >
+        
+          <div class="bg-warning col-8">
+            <div class="formArea d-flex flex-row">
+              <h4 class="titleForm ">One-way Ticket :</h4>
             </div>
-            <div class="d-flex justify-content-center align-items-center">
+            <div class=" bg-info">
               <form action="/journey " method="POST">
-                <div class="itemhp form-floatin mb-3">
+                <div class="itemhp form-floatin mb-3 col-3">
                   <input
                     name="citystart"
                     type="text"
@@ -36,7 +36,7 @@
                     placeholder="From: Paris, Marseille"
                   />
                 </div>
-                <div class="itemhp form-floatin mb-3">
+                <div class="itemhp form-floatin mb-3 col-3">
                   <input
                     name="cityarrive"
                     type="text"
@@ -45,7 +45,7 @@
                     placeholder="To : Lille, Brest"
                   />
                 </div>
-                <div class="itemhp calendar">
+                <div class="itemhp calendar col-3">
                   <input
                     type="date"
                     id="start"
@@ -66,9 +66,13 @@
                 </div>
               </form>
             </div>
+              
+
           </div>
-          <img class="imghp" src="../images/landmark.png" />
-        </div>
+          
+          <div>
+            <img class="imghp col-4" src="../images/landmark.png" />
+          </div>
       </div>
     </div>
 
@@ -87,6 +91,6 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <footer><p>2021 La Capsule</p></footer>
+    <%- include('footer'); %>
   </body>
 </html>

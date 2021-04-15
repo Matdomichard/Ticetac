@@ -14,6 +14,10 @@ router.get('/login', function(req, res, next) {
   res.render('homepage');
 });
 
+router.get('/error', function(req, res, next) {
+  res.render('error');
+});
+
 
 // Vous pouvez choisir de la garder ou la supprimer.
 router.get('/result', function(req, res, next) {

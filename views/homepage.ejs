@@ -18,16 +18,20 @@
                                         <h4 class="titleForm d-flex flex-row ">One-way Ticket :</h4>
                                 </div>    
                                 <div class="d-flex align-items-center ">
+                                    <form action="/journey "  method="POST">
                                         <div class="itemhp form-floatin mb-3">
                                             <input type="email" class="form-control" id="floatingInput" placeholder="From: Paris, Marseille">
                                         </div>
                                         <div class="itemhp form-floatin mb-3">
                                             <input type="email" class="form-control" id="floatingInput" placeholder="To : Lille, Brest">
                                         </div>  
+                                        <div class="itemhp calendar">
+                                            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">                                
+                                        </div>
                                         <div>
                                             <button id="buttonhp" type=" form-floating submit" class="btn btn-danger">Go</button>
                                         </div>
-                                                                        
+                                    </form>    
                                 </div>  
                         </div>
                         <img class="imghp" src="../images/landmark.png">

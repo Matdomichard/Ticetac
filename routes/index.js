@@ -10,8 +10,9 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
-
-
+router.get('/login', function(req, res, next) {
+  res.render('homepage');
+});
 
 
 // Vous pouvez choisir de la garder ou la supprimer.

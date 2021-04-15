@@ -7,11 +7,10 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-var searchUser = await userModel.findOne({email:req.body.email})
+// var searchUser = await userModel.findOne({email:req.body.email})
 
 router.post('/signup', async function(req, res, next) {
 
-if(searchUser == null){
   var newUser = new userModel({
     lastName : req.body.firstname,
     firstName: req.body.lastname,
@@ -20,12 +19,10 @@ if(searchUser == null){
   })
   var userSaved = await newUser.save();
   res.redirect('/homepage')
-}
 
-else {
-  res.render('login');
-  } 
+  
 });
+
 
 
 

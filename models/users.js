@@ -5,7 +5,7 @@ var userSchema = mongoose.Schema({
     firstName: String,
     email: String,
     password: String,
-    journeys: [messageSchema],
+    // journeys: [journeysSchema],
       })
 
 var userModel = mongoose.model('users', userSchema)

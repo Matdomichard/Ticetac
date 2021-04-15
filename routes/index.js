@@ -39,8 +39,10 @@ var options = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homepage', { title: 'Express' });
+  res.render('/login', { title: 'Express' });
 });
+
+
 
 
 // Remplissage de la base de donnée, une fois suffit

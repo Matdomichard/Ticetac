@@ -14,6 +14,20 @@ router.get('/login', function(req, res, next) {
   res.render('homepage');
 });
 
+// route qui vérifie l'existence de ce voyage dans la BD
+router.post('/journey', function(req, res, next) {
+
+  console.log(req.body)
+  // var journeyExist = await journeyModel.findOne({ date: req.body.newcity.toLowerCase() });
+
+  // if(){
+  //   res.render('ticketavailable');
+  //  }else {
+  //  res.redirect('/error');
+  //  }  
+});
+
+
 router.get('/error', function(req, res, next) {
   res.render('error');
 });

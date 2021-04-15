@@ -1,50 +1,92 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Ticetac</title>
     <!-- To add in order to scale the view for mobiles -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="./stylesheets/style.css">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
   </head>
   <body>
     <%- include('navbar'); %>
-        <div class="container col-12 d-flex justify-content-center">
-            <div class="rowerror  ">
-                    <div class=" d-flex  flex-column align-items-center">  
-                        <div>
-                                <div class="formArea d-flex ">
-                                        <h4 class="titleForm d-flex flex-row ">One-way Ticket :</h4>
-                                </div>    
-                                <div class="d-flex align-items-center ">
-                                    <form action="/journey "  method="POST">
-                                        <div class="itemhp form-floatin mb-3">
-                                            <input type="text" class="form-control" id="floatingInput" placeholder="From: Paris, Marseille">
-                                        </div>
-                                        <div class="itemhp form-floatin mb-3">
-                                            <input type="text" class="form-control" id="floatingInput" placeholder="To : Lille, Brest">
-                                        </div>  
-                                        <div class="itemhp calendar">
-                                            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">                                
-                                        </div>
-                                        <div>
-                                            <button id="buttonhp" type=" form-floating submit" class="btn btn-danger">Go</button>
-                                        </div>
-                                    </form>    
-                                </div>  
-                        </div>
-                        <img class="imghp" src="../images/landmark.png">
-                    </div>    
+    <div class="container col-12 d-flex justify-content-center">
+      <div class="rowerror">
+        <div class="d-flex flex-column align-items-center">
+          <div>
+            <div class="formArea d-flex">
+              <h4 class="titleForm d-flex flex-row">One-way Ticket :</h4>
             </div>
+            <div class="d-flex align-items-center">
+              <form action="/journey " method="POST">
+                <div class="itemhp form-floatin mb-3">
+                  <input
+                    name="citystart"
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="From: Paris, Marseille"
+                  />
+                </div>
+                <div class="itemhp form-floatin mb-3">
+                  <input
+                    name="cityarrive"
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="To : Lille, Brest"
+                  />
+                </div>
+                <div class="itemhp calendar">
+                  <input
+                    type="date"
+                    id="start"
+                    name="trip-start"
+                    value="2018-11-22"
+                    min="2018-20"
+                    max="2018-12-25"
+                  />
+                </div>
+                <div>
+                  <button
+                    id="buttonhp"
+                    type=" form-floating submit"
+                    class="btn btn-danger"
+                  >
+                    Go
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <img class="imghp" src="../images/landmark.png" />
         </div>
+      </div>
+    </div>
 
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <footer> <p>2021 La Capsule</p></footer>
-
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <footer><p>2021 La Capsule</p></footer>
+  </body>
 </html>

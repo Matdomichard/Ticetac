@@ -6,3 +6,35 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container {
+
+  margin-top: 200px;
+  background-color: red;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+.row {
+  background-color: green;
+  padding: 15px;
+}
+
+#signin  {
+ background-color:pink;
+ margin: 10px;
+
+}
+
+#signup  {
+  background-color: blue;
+  margin: 10px;
+ }
+
+footer {
+  display: flex;
+  justify-content: center;
+  opacity: 75%;
+
+}

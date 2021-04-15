@@ -1,36 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var journeyModel = require('../models/journeys')
 
 const mongoose = require('mongoose');
-
-// useNewUrlParser ;)
-var options = {
-  connectTimeoutMS: 5000,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
- };
-
-// --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://admin:admin@cluster0.8ipot.mongodb.net/Ticetac?retryWrites=true&w=majority',
-   options,
-   function(err) {
-    if (err) {
-      console.log(`error, failed to connect to the database because --> ${err}`);
-    } else {
-      console.info('*** Database Ticketac connection : Success ***');
-    }
-   }
-);
-
-var journeySchema = mongoose.Schema({
-  departure: String,
-  arrival: String,
-  date: Date,
-  departureTime: String,
-  price: Number,
-});
-
-var journeyModel = mongoose.model('journey', journeySchema);
 
 
 /* GET home page. */

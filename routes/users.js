@@ -7,9 +7,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-// var searchUser = await userModel.findOne({email:req.body.email})
 
-router.post('/signup', async function(req, res, next) {
+router.post('/signuptohomepage', async function(req, res, next) {
 
   var newUser = new userModel({
     lastName : req.body.firstname,
@@ -24,18 +23,18 @@ router.post('/signup', async function(req, res, next) {
   res.render('homepage')
 });
 
-router.post('/signin', async function(req, res, next) {
+router.post('/signuntohomepage', async function(req, res, next) {
   var searchUser = await userModel.findOne(
  {email:req.body.email,
- password:req.body.password,
+ password:req.body.password
  }
  )
 
- if(searchUser!= null) {
+ if(searchUser == null) {
+  res.redirect('/');
+ }else {
   req.session.user = {email: searchUser.email, id: searchUser._id};
   res.render('homepage');
- }else {
- res.redirect('/login');
  }  
  });
 

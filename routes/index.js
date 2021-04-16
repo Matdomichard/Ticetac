@@ -50,7 +50,6 @@ router.get('/basket', function(req, res, next) {
   
   console.log("---------------------req.query---------------------",req.query)
   
-
   dataBasket.push(
       {departure: req.query.departure,
       arrival: req.query.arrival,

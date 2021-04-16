@@ -19,15 +19,22 @@
   <body>
     <%- include('navbar'); %>
     <div class="container col-12 d-flex justify-content-center bg-primary">
+
+
       <div class="rowerror bg-success col-8 " >
-        
           <div class="bg-warning col-8">
             <div class="formArea d-flex flex-row">
               <h4 class="titleForm ">One-way Ticket :</h4>
             </div>
-            <div class=" bg-info">
+
+
+            <!-- <div class=" bg-info"> -->
+              <ul class="list-group justify-content-between">
+                <!-- itemhp form-floatin mb-3 col-3 -->
               <form action="/journey " method="POST">
-                <div class="itemhp form-floatin mb-3 col-3">
+
+                <li class="list-group-item d-flex justify-content-between align-items-center" ></li>
+                <div class="itemhp form-floatin list-group-item ">
                   <input
                     name="citystart"
                     type="text"
@@ -65,7 +72,9 @@
                   </button>
                 </div>
               </form>
-            </div>
+
+
+            <!-- </div> -->
               
 
           </div>

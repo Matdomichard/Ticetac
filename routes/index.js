@@ -16,11 +16,10 @@ router.get('/login', function(req, res, next) {
 
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post('/journey', async function(req, res, next) {
-
-let journeyExist = await journeyModel.findOne({ departure: req.body.citystart , arrival:req.body.cityarrive});
-console.log(journeyExist)
-  if(journeyExist != null){
-    res.render('ticketavailable');
+let askedDate = req.body.tripstart
+let trainAvailable = await journeyModel.find({ departure: req.body.citystart , arrival:req.body.cityarrive, date: req.body.tripstart});
+  if(trainAvailable != null){
+    res.render('ticketsavailable', {trainAvailable: trainAvailable, askedDate: askedDate});
    }else {
    res.redirect('/notrainavailable');
    }  

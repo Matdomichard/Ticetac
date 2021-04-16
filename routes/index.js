@@ -4,6 +4,9 @@ var journeyModel = require('../models/journeys')
 
 const mongoose = require('mongoose');
 
+var displayCityName = function (cityName) {
+  return cityName.charAt(0).toUpperCase()+cityName.slice(1)
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,7 +20,12 @@ router.get('/login', function(req, res, next) {
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post('/journey', async function(req, res, next) {
 let askedDate = req.body.tripstart
-let trainAvailable = await journeyModel.find({ departure: req.body.citystart , arrival:req.body.cityarrive, date: req.body.tripstart});
+console.log("--------------typeof-----------------", typeof req.body.cityarrive)
+console.log("--------------req.body-----------------", req.body)
+console.log("--------------req.body.cityarrive-----------------",displayCityName(req.body.cityarrive))
+
+
+let trainAvailable = await journeyModel.find({ departure: displayCityName(req.body.citystart), arrival: displayCityName(req.body.cityarrive), date: req.body.tripstart});
   if(trainAvailable != null){
     res.render('ticketsavailable', {trainAvailable: trainAvailable, askedDate: askedDate});
    }else {
@@ -37,6 +45,9 @@ router.get('/ticketsavailable', function(req, res, next) {
 });
 
 router.get('/basket', function(req, res, next) {
+  
+  console.log("---------------------req.query---------------------",req.query)
+  
 
   res.render('basket');
 });

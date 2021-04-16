@@ -27,12 +27,7 @@ app.use(
     return format;  
     }
   
-    displayCityName = function (cityName) {
-          return cityName.charAt(0).toUpperCase()
-    }
-   
-
-
+  
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -8,6 +8,9 @@ var displayCityName = function (cityName) {
   return cityName.charAt(0).toUpperCase()+cityName.slice(1)
 }
 
+var dataBasket = [];
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
@@ -20,7 +23,6 @@ router.get('/login', function(req, res, next) {
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post('/journey', async function(req, res, next) {
 let askedDate = req.body.tripstart
-console.log("--------------typeof-----------------", typeof req.body.cityarrive)
 console.log("--------------req.body-----------------", req.body)
 console.log("--------------req.body.cityarrive-----------------",displayCityName(req.body.cityarrive))
 
@@ -49,7 +51,14 @@ router.get('/basket', function(req, res, next) {
   console.log("---------------------req.query---------------------",req.query)
   
 
-  res.render('basket');
+  dataBasket.push(
+      {departure: req.query.departure,
+      arrival: req.query.arrival,
+      departureTime: req.query.departureTime,
+      price: req.query.price}
+  )
+  
+  res.render('basket', {dataBasket});
 });
 
 router.get('/mylasttrips', function(req, res, next) {

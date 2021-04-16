@@ -18,42 +18,35 @@
   </head>
   <body>
     <%- include('navbar'); %>
-    <div class="container col-12 d-flex justify-content-center bg-primary">
+    <div class="container d-flex justify-content-center">
+      <div class="col-8">
+        <div class="row bg-warning">
+          <div class="formArea">
+            <h3 class="titleForm">One-way ticket :</h3>
 
+            <!-- itemhp form-floatin mb-3 col-3 -->
 
-      <div class="rowerror bg-success col-8 " >
-          <div class="bg-warning col-8">
-            <div class="formArea d-flex flex-row">
-              <h4 class="titleForm ">One-way Ticket :</h4>
-            </div>
-
-
-            <!-- <div class=" bg-info"> -->
-              <ul class="list-group justify-content-between">
-                <!-- itemhp form-floatin mb-3 col-3 -->
-              <form action="/journey " method="POST">
-
-                <li class="list-group-item d-flex justify-content-between align-items-center" ></li>
-                <div class="itemhp form-floatin list-group-item ">
+            <form action="/journey " method="POST">
+              <ul class="list-group ">
+                <div class="bg-success d-flex flex-row justify-content-between" style="">
                   <input
+                    class="list-group-item"
                     name="citystart"
                     type="text"
                     class="form-control"
                     id="floatingInput"
                     placeholder="From: Paris, Marseille"
                   />
-                </div>
-                <div class="itemhp form-floatin mb-3 col-3">
                   <input
+                    class="list-group-item"
                     name="cityarrive"
                     type="text"
                     class="form-control"
                     id="floatingInput"
                     placeholder="To : Lille, Brest"
                   />
-                </div>
-                <div class="itemhp calendar col-3">
                   <input
+                    class="calendar list-group-item"
                     type="date"
                     id="start"
                     name="tripstart"
@@ -61,27 +54,19 @@
                     min="2018-20"
                     max="2018-12-25"
                   />
-                </div>
-                <div>
-                  <button
-                    id="buttonhp"
-                    type=" form-floating submit"
-                    class="btn btn-danger"
-                  >
+
+                  <button id="buttonhp" type=" form-floating submit" class="btn btn-danger">
                     Go
                   </button>
                 </div>
-              </form>
-
-
-            <!-- </div> -->
-              
-
+              </ul>
+            </form>
           </div>
-          
-          <div>
-            <img class="imghp col-4" src="../images/landmark.png" />
-          </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+          <img class="col-5" src="../images/landmark.png" />
+        </div>
       </div>
     </div>
 

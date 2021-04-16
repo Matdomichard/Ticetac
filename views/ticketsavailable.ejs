@@ -30,7 +30,7 @@
                     <div class="card-body ml-5"><h5 class="card-title">train departure at : <%=trainAvailable[i].departureTime%>PM</h5></div>
                     <div class="mr-3"><%=trainAvailable[i].price%>€</div>   
                      <input type="hidden" <%trainAvailable[i].date%>></input> 
-                    <input> <a href="/basket?date=<%=trainAvailable[i].date%>&departure=<%=trainAvailable[i].departure%>&arrival=<%=trainAvailable[i].arrival%>&departureTime=<%=trainAvailable[i].departureTime%>&price=<%=trainAvailable[i].price%>" class="btn btn btn-danger btn-sm mr-3">OK</a></input>   
+                    <a href="/basket?date=<%=trainAvailable[i].date%>&departure=<%=trainAvailable[i].departure%>&arrival=<%=trainAvailable[i].arrival%>&departureTime=<%=trainAvailable[i].departureTime%>&price=<%=trainAvailable[i].price%>" class="btn btn btn-danger btn-sm mr-3">OK</a>  
                     </div>
                 </div>
             <br>

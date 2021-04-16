@@ -14,10 +14,17 @@ var dataBasket = [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if(req.session.user == undefined) {
+    req.session.user = [];
+  }
   res.render('login', { title: 'Express' });
 });
 
+
 router.get('/homepage', function(req, res, next) {
+  if(req.session.user == undefined) {
+    req.session.user = [];
+  }
   res.render('homepage');
 });
 

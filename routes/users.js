@@ -11,17 +11,12 @@ router.get('/', function(req, res, next) {
 
 // l'user se connecte a son compte
 router.post('/signintohomepage', async function(req, res, next) {
-  var searchUser = await userModel.findOne(
- {email:req.body.email,
- password:req.body.password
- }
- )
-
- if(searchUser == null) {
-  res.redirect('/');
+  var user = await userModel.find( {email:req.body.email,password:req.body.password})
+  if(user.length > 0){
+    req.session.user = user[0]
+    res.render('homepage', );
  }else {
-  req.session.user = {email: searchUser.email, id: searchUser._id};
-  res.render('homepage');
+  res.render('login',{alertMessage:'You need to sign-up first'},);
  }  
  });
 

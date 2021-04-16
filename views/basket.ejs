@@ -33,7 +33,7 @@
           <tr class="table-light">
             <th scope="row"><%=[i]+1%></th>
             <td><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
-            <td>02/05/2018</td>
+            <td><%=dateFormat(dataBasket[i].date)%></td>
             <td><%=dataBasket[i].departureTime%></td>
             <td><%=dataBasket[i].price%>€</td>
           </tr>

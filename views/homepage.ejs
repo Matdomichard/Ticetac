@@ -17,58 +17,46 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+ <!-- NAVBAR HEADER Boostrap -->
     <%- include('navbar'); %>
-    <div class="container d-flex justify-content-center">
-      <div class="col-8">
-        <div class="row">
-          <div class="formArea">
-            <h3 class="titleForm">One-way ticket :</h3>
 
-            <!-- itemhp form-floatin mb-3 col-3 -->
 
-            <form action="/journey " method="POST">
-              <ul class="list-group ">
-                <div class=" d-flex flex-row align-items-center" style="flex-wrap: wrap">
-                  <input
-                    class="list-group-item"
-                    style="margin:5px"
-                    name="citystart"
-                    type="text"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="From: Paris, Marseille"
-                  />
-                  <input
-                    class="list-group-item"
-                    style="margin:5px"
-                    name="cityarrive"
-                    type="text"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="To : Lille, Brest"
-                  />
-                  <input
-                    class="calendar list-group-item"
-                    style="margin:5px"
-                    type="date"
-                    id="start"
-                    name="tripstart"
-                    value="2018-11-22"
-                    min="2018-20"
-                    max="2018-12-25"
-                  />
-                  <button id="buttonhp" type=" form-floating submit" class="btn btn-danger ">
-                    Go
-                  </button>
-                </div>
-              </ul>
-            </form>
-          </div>
+
+    <div >
+
+      <!-- Test title -->
+      <h3 class="homeTitle">One-way ticket : </h3>
+
+      <!-- Input Field -->
+      <div class="inputField">
+          <form class="form-inline" action="/journeys" method="POST">
+
+              <div class="form-group">
+                  <input name="departureCity" type="text" class="form-control" id="inputPassword2" placeholder="From: Paris, Marseille..." required>
+              </div>
+                  
+              <div class="form-group mx-sm-3">
+                  <input name="arrivalCity" type="text" class="form-control" id="inputPassword2" placeholder="To: Lille, Nantes... " required>
+              </div>
+
+              <div class="form-group ">
+                  <input name="journeyDate" type="date" class="form-control" id="inputPassword2" placeholder="Date : 02/08" required>
+              </div>
+
+            
+                  
+              <button type="submit" class="btn btn-danger mx-sm-3">Go</button>
         </div>
 
-        <div class="d-flex justify-content-center align-items-center">
-          <img class="col-5" src="../images/landmark.png" />
-        </div>
+
+        <div class="divImg">
+          <img src="/images/landmark.png" class="cityImg" alt="">
+      </div>
+
+    </div>
+
+
+      
       </div>
     </div>
 

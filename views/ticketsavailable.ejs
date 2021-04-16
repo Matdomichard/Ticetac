@@ -19,41 +19,21 @@
 
       <div class="row d-flex flex-column col-12 ">
             <div class="formArea d-flex ">
-                <h4 class="titleForm d-flex flex-row "> Tickets available on : DATE</h4> <!-- date -->
+                <h4 class="titleForm d-flex flex-row "> Tickets available on : <%=dateFormat(askedDate)%></h4> <!-- date -->
             </div> 
-
-
-      
-            <div class="col-12">
-                <div class="card d-flex flex-row align-items-center">
-                    <div class="ml-3"> <h5>Paris / Lille</h5></div>
-                    <div class="card-body ml-5"><h5 class="card-title">train departure at : 13:00PM</h5></div>
-                    <div class="mr-3">PRICE€</div>   
-                    <div> <a href="" class="btn btn btn-danger btn-sm mr-3">OK</a></div>   
-                    </div>
-                </div>
-            
+            <% for (i=0; i< trainAvailable.length; i++){
+                %>
             <br>
             <div class="col-12">
                 <div class="card d-flex flex-row align-items-center">
-                    <div class="ml-3"> <h5>Paris / Lille</h5></div>
-                    <div class="card-body ml-5"><h5 class="card-title">train departure at : 13:00PM</h5></div>
-                    <div class="mr-3">PRICE€</div>   
+                    <div class="ml-3"> <h5><%=trainAvailable[i].departure%> / <%=trainAvailable[i].arrival%></h5></div>
+                    <div class="card-body ml-5"><h5 class="card-title">train departure at : <%=trainAvailable[i].departureTime%>PM</h5></div>
+                    <div class="mr-3"><%=trainAvailable[i].price%>€</div>   
                     <div> <a href="" class="btn btn btn-danger btn-sm mr-3">OK</a></div>   
                     </div>
                 </div>
-            
             <br>
-            <div class="col-12">
-                <div class="card d-flex flex-row align-items-center">
-                    <div class="ml-3"> <h5>Paris / Lille</h5></div>
-                    <div class="card-body ml-5"><h5 class="card-title">train departure at : 13:00PM</h5></div>
-                    <div class="mr-3">PRICE€</div>   
-                    <div> <a href="" class="btn btn btn-danger btn-sm mr-3">OK</a></div>   
-                    </div>
-                </div>
-            
-            <br>
+        <%}%>
         </div>     
       
 

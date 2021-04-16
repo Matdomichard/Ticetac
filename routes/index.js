@@ -47,16 +47,17 @@ router.get('/ticketsavailable', function(req, res, next) {
 });
 
 router.get('/basket', function(req, res, next) {
-  
-  console.log("---------------------req.query---------------------",req.query)
+console.log(req.query)
   
   dataBasket.push(
       {departure: req.query.departure,
       arrival: req.query.arrival,
+      date: req.query.tripstart,
       departureTime: req.query.departureTime,
       price: req.query.price}
   )
   
+console.log(dataBasket)
   res.render('basket', {dataBasket});
 });
 

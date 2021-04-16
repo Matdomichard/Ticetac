@@ -60,12 +60,12 @@ router.get('/ticketsavailable', function(req, res, next) {
 });
 
 router.get('/basket', function(req, res, next) {
-console.log(req.query)
+console.log("----------------------------------req.query-----------------------------",req.query)
   
   dataBasket.push(
       {departure: req.query.departure,
       arrival: req.query.arrival,
-      date: req.query.tripstart,
+      date: req.query.date,
       departureTime: req.query.departureTime,
       price: req.query.price}
   )

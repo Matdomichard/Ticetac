@@ -3,6 +3,7 @@ var router = express.Router();
 var journeyModel = require('../models/journeys')
 
 const mongoose = require('mongoose');
+const userModel = require('../models/users');
 
 var displayCityName = function (cityName) {
   return cityName.charAt(0).toUpperCase()+cityName.slice(1)
@@ -20,12 +21,24 @@ router.get('/homepage', function(req, res, next) {
   res.render('homepage');
 });
 
+
+//add to past journeys
+router.get('/addtopastjourneys', async function(req, res, next) {
+
+  console.log(req.session.user)
+// let curentUser = await userModel.find(req.session.user.id)
+
+
+
+  res.render('/');
+});
+
+
+
+
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post('/journey', async function(req, res, next) {
 let askedDate = req.body.tripstart
-console.log("--------------req.body-----------------", req.body)
-console.log("--------------req.body.cityarrive-----------------",displayCityName(req.body.cityarrive))
-
 
 let trainAvailable = await journeyModel.find({ departure: displayCityName(req.body.citystart), arrival: displayCityName(req.body.cityarrive), date: req.body.tripstart});
   if(trainAvailable != null){

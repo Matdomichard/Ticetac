@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/signup', async function(req, res, next) {
+router.post('/signuptohomepage', async function(req, res, next) {
 
   var newUser = new userModel({
     lastName : req.body.firstname,
@@ -23,7 +23,7 @@ router.post('/signup', async function(req, res, next) {
   res.render('homepage')
 });
 
-router.post('/signintohomepage', async function(req, res, next) {
+router.post('/signuntohomepage', async function(req, res, next) {
   var searchUser = await userModel.findOne(
  {email:req.body.email,
  password:req.body.password

@@ -20,7 +20,7 @@
     <%- include('navbar'); %>
     <div class="container d-flex justify-content-center">
       <div class="col-8">
-        <div class="row bg-warning">
+        <div class="row">
           <div class="formArea">
             <h3 class="titleForm">One-way ticket :</h3>
 
@@ -28,9 +28,10 @@
 
             <form action="/journey " method="POST">
               <ul class="list-group ">
-                <div class="bg-success d-flex flex-row justify-content-between" style="">
+                <div class=" d-flex flex-row" style="flex-wrap: wrap">
                   <input
                     class="list-group-item"
+                    style="margin:5px"
                     name="citystart"
                     type="text"
                     class="form-control"
@@ -39,6 +40,7 @@
                   />
                   <input
                     class="list-group-item"
+                    style="margin:5px"
                     name="cityarrive"
                     type="text"
                     class="form-control"
@@ -47,6 +49,7 @@
                   />
                   <input
                     class="calendar list-group-item"
+                    style="margin:5px"
                     type="date"
                     id="start"
                     name="tripstart"

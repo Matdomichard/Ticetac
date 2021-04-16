@@ -13,9 +13,6 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('homepage');
-});
 
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post('/journey', async function(req, res, next) {
@@ -40,7 +37,6 @@ router.get('/notrainavailable', function(req, res, next) {
 
 
 router.get('/ticketsavailable', function(req, res, next) {
-
   res.render('ticketsavailable');
 });
 
@@ -53,7 +49,6 @@ router.get('/basket', function(req, res, next) {
 });
 
 router.get('/mylasttrips', function(req, res, next) {
-
   res.render('mylasttrips');
 });
 

@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/homepage', function(req, res, next) {
   res.render('homepage');
 });
 

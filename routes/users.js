@@ -8,22 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/signuptohomepage', async function(req, res, next) {
 
-  var newUser = new userModel({
-    lastName : req.body.firstname,
-    firstName: req.body.lastname,
-    email:  req.body.emailAddress,
-    password: req.body.password
-  })
-  var userSaved = await newUser.save();
-  req.session.user = {email: userSaved.email, id: userSaved._id};
-  console.log(req.session.user)
-
-  res.render('homepage')
-});
-
-router.post('/signuntohomepage', async function(req, res, next) {
+// l'user se connecte a son compte
+router.post('/signintohomepage', async function(req, res, next) {
   var searchUser = await userModel.findOne(
  {email:req.body.email,
  password:req.body.password
@@ -37,6 +24,22 @@ router.post('/signuntohomepage', async function(req, res, next) {
   res.render('homepage');
  }  
  });
+
+// l'user s'inscrit
+router.post('/signuptohomepage', async function(req, res, next) {
+
+  var newUser = new userModel({
+    lastName : req.body.firstname,
+    firstName: req.body.lastname,
+    email:  req.body.emailAddress,
+    password: req.body.password
+  })
+  var userSaved = await newUser.save();
+  req.session.user = {email: userSaved.email, id: userSaved._id};
+
+  res.render('homepage')
+});
+
 
 
 module.exports = router;

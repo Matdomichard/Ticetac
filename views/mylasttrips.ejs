@@ -13,6 +13,7 @@
 
     <div class="container">  
 
+    <% if(historicTravel.length > 0) {%>
         <div class="formArea d-flex flex-row">
             <h4 class="titleForm ">My last Trips :</h4>
           </div>
@@ -29,30 +30,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="table-light">
-            <th scope="row">1</th>
-            <td>Paris /Lille</td>
-            <td>02/05/2018</td>
-            <td>93 euros</td>
-          </tr>
-          <tr class="table-light">
-            <th scope="row">1</th>
-            <td>Paris /Lille</td>
-            <td>02/05/2018</td>
-            <td>93 euros</td>
-          </tr>
-          <tr class="table-light">
-            <th scope="row">1</th>
-            <td>Paris /Lille</td>
-            <td>02/05/2018</td>
-            <td>93 euros</td>
-          </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+          <% for(var i = 0; i<historicTravel.length; i++){ %>
+
+                <tr>
+                <td><%= dateFormat(historicTravel[i].date) %> </td>
+                <td><%= historicTravel[i].departure %> / <%= historicTravel[i].arrival %></td>
+                <td><%= historicTravel[i].departureTime %> pm</td>
+                <td><%= historicTravel[i].price %> €</td>
+                </tr>
+
+                <% } %>
+
+            </tbody>
+            </table>
+        </div>
+
+        <% }else{ %>
+
+        <h3 class="homeTitle">You dont have any historic with us yet! </h3>
+
+        <% } %>    
               <td><div class="d-flex justify-content-center align-items-center">
                 <button  id="mltbutton" href="/login" type=" form-floating submit" class="btn btn-danger">Home</button>         
             </div> </td>

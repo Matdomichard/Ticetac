@@ -14,35 +14,46 @@
 
     <div class="container ">  
 
-
+        <% if(journeyTab.length > 0){ %>
 
 
       <div class="row d-flex flex-column col-12 ">
+
+        <% if(journeyTab.length > 0){ %>
+
             <div class="formArea d-flex ">
-                <h4 class="titleForm d-flex flex-row "> Tickets available on : <%=dateFormat(askedDate)%></h4> 
+                <% for (i=0; i< journeyTab.length; i++){
+                    %>
+                <h4 class="titleForm d-flex flex-row "> Tickets available on:<%= dateFormat(journeyTab[i].date) %>pm</h4> 
             </div> 
-            <% for (i=0; i< trainAvailable.length; i++){
-                %>
+          
             <br>
             <div class="col-12">
                 <div class="card d-flex flex-row align-items-center">
-                    <div class="ml-3"> <h5><%=trainAvailable[i].departure%> / <%=trainAvailable[i].arrival%></h5></div>
-                    <div class="card-body ml-5"><h5 class="card-title">train departure at : <%=trainAvailable[i].departureTime%>PM</h5></div>
-                    <div class="mr-3"><%=trainAvailable[i].price%>€</div>   
-                     <input type="hidden" <%trainAvailable[i].date%></input> 
-                    <a href="/basket?date=<%=trainAvailable[i].date%>&departure=<%=trainAvailable[i].departure%>&arrival=<%=trainAvailable[i].arrival%>&departureTime=<%=trainAvailable[i].departureTime%>&price=<%=trainAvailable[i].price%>" class="btn btn btn-danger btn-sm mr-3">OK</a>  
+                    <form action="/basket" method="POST">
+                    <div class="ml-3"> <h5><%=journeyTab[i].departure%> / <%=journeyTab[i].arrival%></h5></div>
+                    <div class="card-body ml-5"><h5 class="card-title">train departure at : <%=journeyTab[i].departureTime%>PM</h5></div>
+                    <div class="mr-3"><%=journeyTab[i].price%>€</div>   
+                     <input type="hidden" <%journeyTab[i].date%></input> 
+                     <button class="btn btn-danger mx-sm-3">OK</button> 
                     </div>
+                    </form>
                 </div>
             <br>
         <%}%>
         </div>     
-      
 
-
-
+        <% } %>
         
     </div>
+     <% } else{ %>
 
+        <div class="noTrainMessage">
+            <h3 style="color:white;margin-bottom: 15px;">Oops ! No trains available... </h3>
+            <a href="/homepage" class="btn btn-danger mx-sm-3">Home</a>
+        </div>
+
+        <% } %>
 
 
 

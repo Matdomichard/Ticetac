@@ -28,7 +28,6 @@ router.get("/homepage", function (req, res, next) {
 
 //add to past journeys
 router.get("/addtopastjourneys", async function (req, res, next) {
-  console.log(req.session.user);
   // let curentUser = await userModel.find(req.session.user.id)
 
   res.render("/");
@@ -36,15 +35,13 @@ router.get("/addtopastjourneys", async function (req, res, next) {
 
 // route qui vérifie l'existence de ce voyage dans la BD
 router.post("/journey", async function (req, res, next) {
-  let askedDate = req.body.tripstart;
-
   let departureCity = req.body.citystart;
   let arrivalCity = req.body.cityarrive;
   let dateDeparture = req.body.tripstart;
 
   let userId = req.body.userId;
 
-  let trainAvailable = await journeyModel.find({
+  let journey = await journeyModel.find({
     departure: displayCityName(departureCity),
     arrival: displayCityName(arrivalCity),
     date: dateDeparture,
@@ -52,45 +49,42 @@ router.post("/journey", async function (req, res, next) {
 
   req.session.journeyTab = [];
 
-  if (trainAvailable != null) {
+  if (journey[0] == undefined) {
     res.render("ticketsavailable", {
-      trainAvailable: trainAvailable,
-      askedDate: askedDate,
       journeyTab: req.session.journeyTab,
       userId,
     });
   } else {
-    res.redirect("/notrainavailable", {
+    for (var i = 0; i < journey.length; i++) {
+      req.session.journeyTab.push(journey[i]);
+    }
+    res.render("ticketsavailable", {
       journeyTab: req.session.journeyTab,
       userId,
     });
   }
 });
 
-router.get("/notrainavailable", function (req, res, next) {
-  res.render("notrainavailable");
-});
 
 router.get("/ticketsavailable", function (req, res, next) {
   res.render("ticketsavailable");
 });
 
-router.get("/basket", function (req, res, next) {
-  console.log(
-    "----------------------------------req.query-----------------------------",
-    req.query
-  );
+router.post("/basket", async function (req, res, next) {
+  if (req.session.myTickets == undefined) {
+    req.session.myTickets = [];
+  }
+  // console.log('req session lookout -->',req.body)
+  req.session.myTickets.push(req.body);
 
-  dataBasket.push({
-    departure: req.query.departure,
-    arrival: req.query.arrival,
-    date: req.query.date,
-    departureTime: req.query.departureTime,
-    price: req.query.price,
-  });
+  for (var i = 0; i < req.session.myTickets.length; i++) {
+    req.session.myTickets[i].ticketPrice = Number(req.session.myTickets[i].ticketPrice);
+  }
 
-  console.log(dataBasket);
-  res.render("basket", { dataBasket });
+  res.redirect("basket");
+});
+router.get("/basket", async function (req, res, next) {
+  res.render("basket", { myTickets: req.session.myTickets });
 });
 
 router.get("/mylasttrips", function (req, res, next) {
@@ -101,23 +95,56 @@ router.get("/error", function (req, res, next) {
   res.render("error");
 });
 
-// Vous pouvez choisir de la garder ou la supprimer.
-router.get("/result", function (req, res, next) {
-  // Permet de savoir combien de trajets il y a par ville en base
-  for (i = 0; i < city.length; i++) {
-    journeyModel.find(
-      { departure: city[i] }, //filtre
 
-      function (err, journey) {
-        console.log(
-          `Nombre de trajets au départ de ${journey[0].departure} : `,
-          journey.length
-        );
-      }
-    );
+
+
+router.get('/confirmReservation', async function(req, res, next) {
+
+
+  //console.log('/confirmReservation : We have this user in session --> :', req.session.user)
+  
+  // We want to update our onGoingTicket for our user
+  var user = await userModel.findById(req.session.user._id)
+  
+  //console.log(' /confirmReservation : we found the user --->',user);
+
+  //console.log(' /confirmReservation : session --->',req.session.myTickets);
+
+  for(i = 0; i<req.session.myTickets.length; i++){
+
+    user.historyTickets.push({
+
+      departure: req.session.myTickets[i].ticketDeparture,
+      arrival: req.session.myTickets[i].ticketArrival,
+      date: req.session.myTickets[i].ticketDate,
+      departureTime: req.session.myTickets[i].ticketDepartureTime,
+      price: req.session.myTickets[i].ticketPrice,
+
+    })
   }
 
-  res.render("index", { title: "Express" });
+  await user.save()
+
+  req.session.myTickets = []
+
+  res.render('homepage', {user:req.session.user });
+  
 });
+
+router.get('/mylasttrips', async function(req, res, next) {
+
+  var historicTravel = [];
+
+  var user = await userModel.findById(req.session.user._id)
+  
+  //console.log("On a bien le user suivant dans myLastTrips -->",user.historyTickets);
+  res.render('mylasttrips', { title: 'Express',historicTravel:user.historyTickets });     
+  
+});
+
+
+
+
+
 
 module.exports = router;

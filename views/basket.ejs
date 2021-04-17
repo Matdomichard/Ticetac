@@ -13,52 +13,108 @@
 
     <div class="container">  
 
-      <table class="table table-hover">
+        <table class="table table-light ">
         <thead>
-          <tr class="table-light">
+            <tr>
             <th scope="col">N°</th>
             <th scope="col">Journey</th>
             <th scope="col">Date</th>
-            <th scope="col">Date départure</th>
+            <th scope="col">Departure time</th>
             <th scope="col">Price</th>
-          </tr>
+            </tr>
         </thead>
         <tbody>
-          <% var totalCmd = 0;
-          for (let i = 0 ; i < dataBasket.length ; i++) {
-            dataBasket[i].price = parseInt(dataBasket[i].price)
-          %>
 
-          <tr class="table-light">
-            <th scope="row"><%=[i]+1%></th>
-            <td><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
-            <td><%=dateFormat(dataBasket[i].date)%></td>
-            <td><%=dataBasket[i].departureTime%></td>
-            <td><%=dataBasket[i].price%>€</td>
-          </tr>
-            <% totalCmd += dataBasket[i].price
-          }%>
-        </tbody>
-        <tfoot class="table-danger">
-          <tr>
+            <% 
+            var totalBasket = 0
+            var Number = 0
+             %>
+
+            <% for(var i = 0; i<myTickets.length; i++){
+                
+                totalBasket = totalBasket + myTickets[i].ticketPrice
+                Number++
+
+            %>
+            <tr>
+            <th scope="row"> <%= Number %> </th>
+            <td> <%= myTickets[i].ticketDeparture %> / <%=myTickets[i].ticketArrival %></td>
+            <td> <%= dateFormat(myTickets[i].ticketDate) %> </td>
+            <td> <%= myTickets[i].ticketDepartureTime %> pm</td>
+            <td> <%= myTickets[i].ticketPrice %> €</td>
+            </tr>
+
+            <% } %>
+
+            <tr  class="table-danger">
             
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><%=totalCmd%>€</td>
-          </tr>
-        </tfoot>
-        
-      </table>
+            <th colspan="4">Total</th>
+            <td> <%= totalBasket %> €</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
 
-      <td><div class="d-flex justify-content-center align-items-center">
-        <button  id="mltbutton" href="/addtopastjourneyss" type=" form-floating submit" class="btn btn-danger">Confirm</button>         
-    </div> </td>
+    <div style="margin-left:80%;">
+        <button type="button" data-toggle="modal" data-target="#resume" class="btn btn-danger">Confirm</button>
+    </div>
+    <div class="modal fade" id="resume" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title resume" id="exampleModalLongTitle">Your order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="tableModal table-light ">
+                    <thead>
+                        <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Journey</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Departure time</th>
+                        <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-      
-   
-        
+                        <% 
+                        var totalBasket = 0
+                        var Number = 0
+                        %>
+
+                        <% for(var i = 0; i<myTickets.length; i++){
+                            
+                            totalBasket = totalBasket + myTickets[i].ticketPrice
+                            Number++
+
+                        %>
+                        <tr>
+                        <th scope="row"> <%= Number %> </th>
+                        <td> <%= myTickets[i].ticketDeparture %> / <%=myTickets[i].ticketArrival %></td>
+                        <td> <%= dateFormat(myTickets[i].ticketDate) %> </td>
+                        <td> <%= myTickets[i].ticketDepartureTime %> pm</td>
+                        <td> <%= myTickets[i].ticketPrice %> €</td>
+                        </tr>
+
+                        <% } %>
+
+                        <tr  class="table-danger">
+                        
+                        <th colspan="4">Total</th>
+                        <td> <%= totalBasket %> €</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/confirmReservation" type="button" class="btn btn-primary">Confirm order</a>
+            </div>
+            </div>
+        </div>
     </div>
 
 

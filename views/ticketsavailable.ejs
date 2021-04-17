@@ -14,39 +14,48 @@
 
     <div class="container ">  
 
+        <h3 class="homeTitle">Tickets available : </h3>
+
+        <!-- Input Field -->
+
         <% if(journeyTab.length > 0){ %>
 
+        <div class="resultField">
 
-      <div class="row d-flex flex-column col-12 ">
+            <!-- Result Number 1 -->
 
-        <% if(journeyTab.length > 0){ %>
+            <% for(var i = 0; i<journeyTab.length; i++){ %>
 
-            <div class="formArea d-flex ">
-                <% for (i=0; i< journeyTab.length; i++){
-                    %>
-                <h4 class="titleForm d-flex flex-row "> Tickets available on:<%= dateFormat(journeyTab[i].date) %>pm</h4> 
-            </div> 
-          
-            <br>
-            <div class="col-12">
-                <div class="card d-flex flex-row align-items-center">
-                    <form action="/basket" method="POST">
-                    <div class="ml-3"> <h5><%=journeyTab[i].departure%> / <%=journeyTab[i].arrival%></h5></div>
-                    <div class="card-body ml-5"><h5 class="card-title">train departure at : <%=journeyTab[i].departureTime%>PM</h5></div>
-                    <div class="mr-3"><%=journeyTab[i].price%>€</div>   
-                     <input type="hidden" <%journeyTab[i].date%></input> 
-                     <button class="btn btn-danger mx-sm-3">OK</button> 
-                    </div>
+            <div class="card w-50">
+                <div class="card-body resultCard">
+                    <!-- <div>Paris / Lille</div> -->
+                    <div> <%= journeyTab[i].departure %> / <%= journeyTab[i].arrival %></div>
+                    <div><small class="text-muted">train departure at : <%= journeyTab[i].departureTime %> pm</small></div>
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                     <div style="font-size: 20px;"><%= journeyTab[i].price %> €</div>
+                     
+
+                     <form action="/basket" method="POST">
+                        <input type="hidden" name="ticketDeparture" value=<%= journeyTab[i].departure %>>
+                        <input type="hidden" name="ticketArrival" value=<%= journeyTab[i].arrival%>>
+                        <input type="hidden" name="ticketDepartureTime" value=<%= journeyTab[i].departureTime %>>
+                        <input type="hidden" name="ticketPrice" value=<%= journeyTab[i].price %>>
+                        <input type="hidden" name="ticketDate" value="<%= journeyTab[i].date %>">
+                        <input type="hidden" name="userId" value=<%= userId %>>
+                        <button class="btn btn-danger mx-sm-3">OK</button>
                     </form>
-                </div>
-            <br>
-        <%}%>
-        </div>     
 
-        <% } %>
-        
-    </div>
-     <% } else{ %>
+                        <!-- <a href="/myTicket" class="btn btn-danger mx-sm-3">OK</a> -->
+                    </div>  
+                </div>
+            </div>
+
+            <% } %>
+
+        </div>
+
+        <% }else{ %>
+
 
         <div class="noTrainMessage">
             <h3 style="color:white;margin-bottom: 15px;">Oops ! No trains available... </h3>

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var pastJourneysSchema = mongoose.Schema({
+var historyTickets = mongoose.Schema({
     departure: String,
     arrival: String,
     date: Date,
@@ -14,7 +14,7 @@ var userSchema = mongoose.Schema({
     firstName: String,
     email: String,
     password: String,
-    pastJourneys : [pastJourneysSchema],
+    historyTickets : [historyTickets],
 });
 var userModel = mongoose.model('users', userSchema)
 

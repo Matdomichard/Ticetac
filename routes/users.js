@@ -23,18 +23,24 @@ router.post('/signintohomepage', async function(req, res, next) {
 // l'user s'inscrit
 router.post('/signuptohomepage', async function(req, res, next) {
 
-  var newUser = new userModel({
-    lastName : req.body.firstname,
-    firstName: req.body.lastname,
-    email:  req.body.emailAddress,
-    password: req.body.password
-  })
+  var user = await userModel.find({ email: req.body.emailAddress})
+  if(user.length > 0){
+    req.session.user = user
+    res.render('login', { title: 'Express',user:req.session.user });
+  }else{
+
+    var newUser = new userModel ({
+      name: req.body.signUpName, 
+      firstName: req.body.signUpFirstName, 
+      password: req.body.signUpPassword, 
+      email: req.body.signUpEmail, 
+    });
  await newUser.save();
   req.session.user = newUser;
 
   res.render('homepage', {user: req.session.user})
+}  
 });
-
 
 
 module.exports = router;

@@ -10,6 +10,8 @@ body {
   IE6-9 */
 }
 
+
+
 .homeTitle{
   margin-left: 27%;
   margin-bottom: 20px;
@@ -110,6 +112,14 @@ a {
 
 .rowerror  {
   height: 100vh;
+}
+
+/* No Train Message -------------------------- */
+.noTrainMessage{
+  padding-top: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
